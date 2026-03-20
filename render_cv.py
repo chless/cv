@@ -326,13 +326,14 @@ def render_pdf(cv: dict, output: str = "cv_output.pdf"):
     name_para = Paragraph(f"<i>{cv['name']}</i>", s["name"])
     contact_lines = []
     if cv.get("email"):
-        contact_lines.append(f"&#9993; {cv['email']}")
-    if cv.get("phone"):
-        contact_lines.append(f"&#9742; {cv['phone']}")
+        contact_lines.append(f'&#9993; <i>{cv["email"]}</i>')
+    if cv.get("email2"):
+        contact_lines.append(f'&#9993; <i>{cv["email2"]}</i>')
     if cv.get("website"):
-        contact_lines.append(f"&#9758; {cv['website']}")
+        contact_lines.append(f'&#9758; <i>{cv["website"]}</i>')
     if cv.get("github"):
-        contact_lines.append(f"&#9672; {cv['github']}")
+        gh_url = cv.get("github_url", f'https://github.com/{cv["github"]}')
+        contact_lines.append(f'&#9672; <a href="{gh_url}" color="black"><i>{cv["github"]}</i></a>')
     contact_para = Paragraph("<br/>".join(contact_lines), s["contact"])
 
     header_table = Table(

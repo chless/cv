@@ -1,6 +1,8 @@
 name: Chanhui Lee
 email: chlessling@gmail.com
-phone: "010-7728-5119"
+email2: chanhui-lee@korea.ac.kr
+github: "chless"
+github_url: "https://github.com/chless"
 
 research_interests:
   - Causal Learning
@@ -10,7 +12,14 @@ research_interests:
   - Natural Language Processing
 
 education:
-  - period: "Mar. 2021 ~ Present"
+  - period: "Mar. 2023 ~ Present"
+    degree: "Ph.D."
+    institution: "Korea University"
+    location: "Seoul, Korea"
+    major: "Artificial Intelligence"
+    advisor: "Sungwoong Kim, Sungbin Lim"
+
+  - period: "Mar. 2021 ~ Feb. 2023"
     degree: "M.S."
     institution: "UNIST"
     location: "Ulsan, Korea"
