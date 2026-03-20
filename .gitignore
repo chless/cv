@@ -1,5 +1,5 @@
-cv_output.pdf
-cv_output.docx
+*.pdf
+*.docx
 __pycache__/
 *.pyc
 .venv/
