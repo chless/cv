@@ -314,7 +314,7 @@ def _underline_name(authors: str, name: str) -> str:
 # ---------------------------------------------------------------------------
 
 
-def render_pdf(cv: dict, output: str = "cv_output.pdf"):
+def render_pdf(cv: dict, output: str = "cv_chanhui_lee.pdf"):
     frame = Frame(MARGIN_L, MARGIN_B, CONTENT_W, PAGE_H - MARGIN_T - MARGIN_B,
                   id="main", leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0)
 
@@ -532,7 +532,7 @@ def render_pdf(cv: dict, output: str = "cv_output.pdf"):
 def main():
     parser = argparse.ArgumentParser(description="Render CV to PDF")
     parser.add_argument("--data", default="cv_data.yaml", help="Path to CV YAML data")
-    parser.add_argument("--output", default="cv_output.pdf", help="PDF output filename")
+    parser.add_argument("--output", default="cv_chanhui_lee.pdf", help="PDF output filename")
     args = parser.parse_args()
 
     cv = load_cv(args.data)
