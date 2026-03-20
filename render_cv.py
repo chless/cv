@@ -297,6 +297,13 @@ def _make_dated_table(rows, styles):
     return tbl
 
 
+def _parse_start_year(period: str) -> int:
+    """Extract the start year from a period string like 'Mar. 2023 ~ Present'."""
+    import re
+    match = re.search(r'(\d{4})', period)
+    return int(match.group(1)) if match else 0
+
+
 def _underline_name(authors: str, name: str) -> str:
     """Underline the CV owner's name in the author string."""
     return authors.replace(name, f"<u>{name}</u>")
@@ -324,7 +331,7 @@ def render_pdf(cv: dict, output: str = "cv_output.pdf"):
 
     # === HEADER: Name (left) + Contact (right) ===
     name_para = Paragraph(f"<i>{cv['name']}</i>", s["name"])
-    contact_lines = []
+    contact_lines = ['<b>Contact</b>']
     if cv.get("email"):
         contact_lines.append(f'&#9993; <i>{cv["email"]}</i>')
     if cv.get("email2"):
@@ -350,11 +357,33 @@ def render_pdf(cv: dict, output: str = "cv_output.pdf"):
     story.append(header_table)
     story.append(Spacer(1, 10))
 
-    # === EDUCATION ===
-    if cv.get("education"):
-        story.append(SectionTitle("Education", s["section"]))
-        rows = []
-        for e in cv["education"]:
+    # === RESEARCH INTERESTS ===
+    if cv.get("research_interests") or cv.get("research_summary"):
+        story.append(SectionTitle("Research Interests", s["section"]))
+        if cv.get("research_summary"):
+            story.append(Paragraph(cv["research_summary"], s["entry_body"]))
+            story.append(Spacer(1, 6))
+        if cv.get("research_interests"):
+            topics = "; ".join(cv["research_interests"]) + "."
+            tbl = Table(
+                [[Paragraph("<b>Topics</b>", s["entry_body"]),
+                  Paragraph(topics, s["entry_body"])]],
+                colWidths=[DATE_COL_W, BODY_COL_W],
+                style=TableStyle([
+                    ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 0),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 4),
+                    ("TOPPADDING", (0, 0), (-1, -1), 0),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+                ]),
+            )
+            story.append(tbl)
+
+    # === EDUCATION & RESEARCH ===
+    if cv.get("education") or cv.get("research_experience"):
+        story.append(SectionTitle("Education & Research", s["section"]))
+        entries = []
+        for e in cv.get("education", []):
             parts = []
             degree_line = f'<b>{e["degree"]},</b> <i>{e["institution"]}</i>'
             if e.get("location"):
@@ -364,31 +393,43 @@ def render_pdf(cv: dict, output: str = "cv_output.pdf"):
                 parts.append((f'Major: {e["major"]}', "entry_body"))
             if e.get("advisor"):
                 parts.append((f'Advisor: {e["advisor"]}', "entry_body"))
-            rows.append((e["period"].replace("~", "–"), parts))
+            entries.append((e["period"], parts))
+        for r in cv.get("research_experience", []):
+            parts = []
+            line = f'<b>{r["position"]},</b> <i>{r["organization"]}</i>'
+            if r.get("location"):
+                line += f', {r["location"]}'
+            parts.append((line, "entry_body"))
+            if r.get("advisor"):
+                parts.append((f'Advisor: {r["advisor"]}', "entry_body"))
+            if r.get("subject"):
+                parts.append((f'Subject: {r["subject"]}', "entry_body"))
+            entries.append((r["period"], parts))
+        entries.sort(key=lambda x: _parse_start_year(x[0]), reverse=True)
+        rows = [(period.replace("~", "–"), parts) for period, parts in entries]
         story.append(_make_dated_table(rows, s))
 
-    # === RESEARCH INTERESTS ===
-    if cv.get("research_interests"):
-        story.append(SectionTitle("Research Interests", s["section"]))
-        topics = "; ".join(cv["research_interests"]) + "."
-        # Use a table for "Topics" label + content
-        tbl = Table(
-            [[Paragraph("Topics", s["entry_body"]),
-              Paragraph(topics, s["entry_body"])]],
-            colWidths=[DATE_COL_W, BODY_COL_W],
-            style=TableStyle([
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("LEFTPADDING", (0, 0), (-1, -1), 0),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 4),
-                ("TOPPADDING", (0, 0), (-1, -1), 0),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
-            ]),
-        )
-        story.append(tbl)
+    # === INDUSTRIAL EXPERIENCE ===
+    if cv.get("work_experience"):
+        story.append(SectionTitle("Industrial Experience", s["section"]))
+        rows = []
+        for w in cv["work_experience"]:
+            parts = []
+            line = f'<b>{w["position"]},</b> <i>{w["organization"]}</i>'
+            if w.get("location"):
+                line += f', {w["location"]}'
+            parts.append((line, "entry_body"))
+            if w.get("department"):
+                parts.append((w["department"], "entry_body"))
+            rows.append((w["period"].replace("~", "–"), parts))
+        story.append(_make_dated_table(rows, s))
 
     # === PUBLICATIONS ===
     if cv.get("publications"):
         story.append(SectionTitle("Publications", s["section"]))
+        if cv.get("publications_note"):
+            story.append(Paragraph(cv["publications_note"], s["entry_italic"]))
+            story.append(Spacer(1, 4))
 
         owner_name = cv.get("name", "")
 
@@ -416,21 +457,39 @@ def render_pdf(cv: dict, output: str = "cv_output.pdf"):
             story.append(BulletCircle(parts))
             story.append(Spacer(1, 6))
 
-    # === CONFERENCES (as separate section if present) ===
-    if cv.get("conferences"):
-        story.append(SectionTitle("Conferences", s["section"]))
-        for c in cv["conferences"]:
-            parts = []
-            parts.append(Paragraph(f'<b>{c["title"]}</b>.', s["pub_title"]))
-            if c.get("authors"):
-                authors = _underline_name(c["authors"], cv.get("name", ""))
-                parts.append(Paragraph(authors + ".", s["pub_body"]))
-            if c.get("venue"):
-                parts.append(Paragraph(f'<i>{c["venue"]}</i>.', s["pub_venue"]))
-            if c.get("note"):
-                parts.append(Paragraph(f'<b>{c["note"]}</b>', s["pub_note"]))
-            story.append(BulletCircle(parts))
-            story.append(Spacer(1, 6))
+    # === ACADEMIC ACTIVITIES ===
+    if cv.get("conferences") or cv.get("academic_services"):
+        story.append(SectionTitle("Academic Activities", s["section"]))
+        if cv.get("conferences"):
+            for c in cv["conferences"]:
+                parts = []
+                parts.append(Paragraph(f'<b>{c["title"]}</b>.', s["pub_title"]))
+                if c.get("authors"):
+                    authors = _underline_name(c["authors"], cv.get("name", ""))
+                    parts.append(Paragraph(authors + ".", s["pub_body"]))
+                if c.get("venue"):
+                    parts.append(Paragraph(f'<i>{c["venue"]}</i>.', s["pub_venue"]))
+                if c.get("note"):
+                    parts.append(Paragraph(f'<b>{c["note"]}</b>', s["pub_note"]))
+                story.append(BulletCircle(parts))
+                story.append(Spacer(1, 6))
+        if cv.get("academic_services"):
+            for svc in cv["academic_services"]:
+                label = svc.get("role", "")
+                detail = svc.get("detail", "")
+                tbl = Table(
+                    [[Paragraph(label, s["entry_body"]),
+                      Paragraph(detail, s["entry_body"])]],
+                    colWidths=[DATE_COL_W + 20, BODY_COL_W - 20],
+                    style=TableStyle([
+                        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+                        ("RIGHTPADDING", (0, 0), (-1, -1), 4),
+                        ("TOPPADDING", (0, 0), (-1, -1), 0),
+                        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+                    ]),
+                )
+                story.append(tbl)
 
     # === HONORS AND AWARDS ===
     if cv.get("honors"):
@@ -461,58 +520,6 @@ def render_pdf(cv: dict, output: str = "cv_output.pdf"):
                 parts.append((f'({t["link_label"]})', "entry_body"))
             rows.append((t.get("date", ""), parts))
         story.append(_make_dated_table(rows, s))
-
-    # === WORK EXPERIENCE ===
-    if cv.get("work_experience"):
-        story.append(SectionTitle("Industrial Experience", s["section"]))
-        rows = []
-        for w in cv["work_experience"]:
-            parts = []
-            line = f'<b>{w["position"]},</b> <i>{w["organization"]}</i>'
-            if w.get("location"):
-                line += f', {w["location"]}'
-            parts.append((line, "entry_body"))
-            if w.get("department"):
-                parts.append((w["department"], "entry_body"))
-            rows.append((w["period"].replace("~", "–"), parts))
-        story.append(_make_dated_table(rows, s))
-
-    # === RESEARCH EXPERIENCE ===
-    if cv.get("research_experience"):
-        story.append(SectionTitle("Research Experience", s["section"]))
-        rows = []
-        for r in cv["research_experience"]:
-            parts = []
-            line = f'<b>{r["position"]},</b> <i>{r["organization"]}</i>'
-            if r.get("location"):
-                line += f', {r["location"]}'
-            parts.append((line, "entry_body"))
-            if r.get("advisor"):
-                parts.append((f'Advisor: {r["advisor"]}', "entry_body"))
-            if r.get("subject"):
-                parts.append((f'Subject: {r["subject"]}', "entry_body"))
-            rows.append((r["period"].replace("~", "–"), parts))
-        story.append(_make_dated_table(rows, s))
-
-    # === ACADEMIC SERVICES ===
-    if cv.get("academic_services"):
-        story.append(SectionTitle("Academic Services", s["section"]))
-        for svc in cv["academic_services"]:
-            label = svc.get("role", "")
-            detail = svc.get("detail", "")
-            tbl = Table(
-                [[Paragraph(label, s["entry_body"]),
-                  Paragraph(detail, s["entry_body"])]],
-                colWidths=[DATE_COL_W + 20, BODY_COL_W - 20],
-                style=TableStyle([
-                    ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                    ("LEFTPADDING", (0, 0), (-1, -1), 0),
-                    ("RIGHTPADDING", (0, 0), (-1, -1), 4),
-                    ("TOPPADDING", (0, 0), (-1, -1), 0),
-                    ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
-                ]),
-            )
-            story.append(tbl)
 
     doc.build(story, canvasmaker=NumberedCanvas)
     print(f"PDF saved: {output}")

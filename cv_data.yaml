@@ -1,19 +1,22 @@
 name: Chanhui Lee
 email: chlessling@gmail.com
 email2: chanhui-lee@korea.ac.kr
-github: "chless"
+github: "GitHub: chless"
 github_url: "https://github.com/chless"
 
+research_summary: "As an AI researcher focused on accelerating scientific progress, I believe that scalable and impactful scientific systems equipped with autonomy are essential. I build these systems through a unified framework that integrates reasoning agents—grounded in scientific laws and equipped with truthful tools—with large-scale generative models acting as scientific world models. Crucially, operating this unified framework at a real-world-meaningful scale requires a seamless architecture driven by deep HPC and system-level CUDA optimizations. This synergy of agentic reasoning and high-performance optimization enables robust closed-loop exploration, ultimately paving the way for long-term visions like autonomous laboratories."
+
 research_interests:
-  - Causal Learning
-  - Deep Learning
-  - Causality
-  - Large-scale Language Models
-  - Natural Language Processing
+  - AI for Science
+  - Foundation Models
+  - High-Performance Computing
+  - Scientific Agents
+  - Large Language Models
+  - Multimodal Reasoning
 
 education:
   - period: "Mar. 2023 ~ Present"
-    degree: "Ph.D."
+    degree: "Ph.D. Candidate"
     institution: "Korea University"
     location: "Seoul, Korea"
     major: "Artificial Intelligence"
@@ -26,7 +29,7 @@ education:
     major: "Artificial Intelligence"
     advisor: "Sungbin Lim"
 
-  - period: "May. 2019 ~ Jan. 2021"
+  - period: "May 2019 ~ Jan. 2021"
     degree: "Military Service"
     institution: "Korean Navy"
     location: "Korea"
@@ -37,127 +40,107 @@ education:
     location: "Ulsan, Korea"
     major: "Chemical Engineering"
 
+publications_note: "(* denotes equal contribution or co-corresponding)"
 publications:
-  # --- Submitted / Under Review ---
   - title: "Mol-LLM: Multimodal Generalist Molecular LLM with Improved Graph Utilization"
-    authors: "Chanhui Lee, Hanbum Ko, Yuheon Song, YongJun Jeong, Rodrigo Hormazabal, Sehui Han, Kyunghoon Bae, Sungbin Lim, Sungwoong Kim"
-    venue: "Submitted to Nature Machine Intelligence"
-    category: "International Publications"
+    authors: "Chanhui Lee, Hanbum Ko, Yuheon Song, Yongjun Jeong, Rodrigo Hormazabal, Sehui Han, Kyunghoon Bae, Sungbin Lim*, Sungwoong Kim*"
+    venue: "Under review at Nature Machine Intelligence"
 
   - title: "RetroReasoner: A Reasoning LLM for Strategic Retrosynthesis Prediction"
     authors: "Hanbum Ko, Chanhui Lee, Ye Rin Kim, Rodrigo Hormazabal, Sehui Han, Sungbin Lim, Sungwoong Kim"
-    venue: "Submitted to ICML 2026"
-    category: "International Publications"
+    venue: "Under review at ICML 2026"
 
   - title: "Machine Learning Hamiltonians are Accurate Energy-Force Predictors"
-    authors: "Seongsu Kim, Chanhui Lee, Yoonho Kim, Seongjun Yun, Honghui Kim, Nayoung Kim, Changyoung Park, Sehui Han, Sungbin Lim, Sungsoo Ahn"
-    venue: "Submitted to ICML 2026"
-    category: "International Publications"
+    authors: "Seongsu Kim, Chanhui Lee, Yoonho Kim, Seongjun Yun, Honghui Kim, Nayoung Kim, Changyoung Park, Sehui Han, Sungbin Lim*, Sungsoo Ahn*"
+    venue: "Under review at ICML 2026"
 
   - title: "Towards a Generalizable AI for Materials Discovery: Validation through Immersion Coolant Screening"
     authors: "Hyunseung Kim, Dae-Woong Jeong, Changyoung Park, Won-Ji Lee, Ha-Eun Lee, Ji-Hye Lee, Rodrigo Hormazabal, Sung Moon Ko, Sumin Lee, Soorin Yim, Chanhui Lee, Sehui Han, Sang-Ho Cha, Woohyung Lim"
-    venue: "Submitted to Science Advances"
-    category: "International Publications"
+    venue: "Under review at Science Advances"
 
-  # --- Accepted ---
+  - title: "Learning Causal Structures in Non-Stationary Time Series with Regime-Adaptive Discovery"
+    authors: "Juhyeon Kim, Yoonseok Yeom, Chanhui Lee, Juyong Sung, Yongjun Jeong, Jeongsup Park, Juhyun Lyu, Jung-Hee Kim, Sangmin Lee, Woohyung Lim, Sungbin Lim, Sanghack Lee"
+    venue: "Under review at UAI 2026"
+
   - title: "Score-informed Neural Operator for Enhancing Ordering-based Causal Discovery"
-    authors: "Jiyeon Kang, Songseong Kim, Chanhui Lee, Doyeong Hwang, Joanie Hayoun Chung, Yunkyung Ko, Sumin Lee, Sungwoong Kim, Sungbin Lim"
-    venue: "Neural Information Processing Systems (NeurIPS) 2025"
-    category: "International Publications"
+    authors: "Jiyeon Kang*, Songseong Kim*, Chanhui Lee, Doyeong Hwang, Joanie Hayoun Chung, Yunkyung Ko, Sumin Lee, Sungwoong Kim, Sungbin Lim"
+    venue: "NeurIPS 2025"
 
-  - title: "Neural Bootstrapping Attention for Neural Processes"
-    authors: "Minsub Lee*, Junhyun Park*, Chanhui Lee, Hyungjoo Cho, Minsuk Shin, Sungbin Lim"
-    venue: "Submitted to NeurIPS 2022"
-    category: "International Publications"
-
-  - title: "Bayesian optimization of the design factors in Si-base quantum dot device for efficient logic gate operation"
-    authors: "Jihoon Kang*, Chanhui Lee*, Taehyun Yoon, Sungbin Lim, Hoon Ryu"
-    venue: "In preparation"
-    note: "(* denotes equal contribution)"
-    category: "International Publications"
-
-  # --- Workshop Publications ---
   - title: "ReactionReasoner: Towards Reasoning LLM for Chemical Reaction Prediction"
     authors: "Hanbum Ko, Chanhui Lee, Ye Rin Kim, Rodrigo Hormazabal, Sehui Han, Sungbin Lim, Sungwoong Kim"
-    venue: "NeurIPS AI for Science Workshop 2025"
-    category: "Workshop Publications"
+    venue: "NeurIPS Workshop on AI for Science 2025"
 
   - title: "Mol-LLM: Multimodal Generalist Molecular LLM with Improved Graph Utilization"
-    authors: "Chanhui Lee, Hanbum Ko, Yuheon Song, YongJun Jeong, Rodrigo Hormazabal, Sehui Han, Kyunghoon Bae, Sungbin Lim*, Sungwoong Kim*"
-    venue: "NeurIPS AI for Science Workshop 2025"
-    category: "Workshop Publications"
+    authors: "Chanhui Lee, Hanbum Ko, Yuheon Song, Yongjun Jeong, Rodrigo Hormazabal, Sehui Han, Kyunghoon Bae, Sungbin Lim*, Sungwoong Kim*"
+    venue: "NeurIPS Workshop on AI for Science 2025"
 
   - title: "On Incorporating Prior Knowledge Extracted from Pre-trained Language Models into Causal Discovery"
-    authors: "Chanhui Lee, Juhyeon Kim, YongJun Jeong, Yoonseok Yeom, Juhyun Lyu, Jung-Hee Kim, Sangmin Lee, Sangjun Han, Hyeokjun Choe, Soyeon Park, Woohyung Lim, Kyunghoon Bae, Sungbin Lim, Sanghack Lee"
-    venue: "Neural Information Processing Systems (NeurIPS) Workshop on Causality and Large Models 2024"
-    category: "Workshop Publications"
+    authors: "Chanhui Lee*, Juhyeon Kim*, Yongjun Jeong, Yoonseok Yeom, Juhyun Lyu, Jung-Hee Kim, Sangmin Lee, Sangjun Han, Hyeokjun Choe, Soyeon Park, Woohyung Lim, Kyunghoon Bae, Sungbin Lim, Sanghack Lee"
+    venue: "NeurIPS Workshop on Causality and Large Models 2024"
 
   - title: "Scalable Multi-Task Transfer Learning for Molecular Property Prediction"
     authors: "Chanhui Lee, Dae-Woong Jeong, Sung Moon Ko, Sumin Lee, Hyunseung Kim, Soorin Yim, Sehui Han, Sungwoong Kim, Sungbin Lim"
-    venue: "International Conference on Machine Learning (ICML) AI4Science Workshop 2024"
-    category: "Workshop Publications"
+    venue: "ICML Workshop on AI4Science 2024"
 
   - title: "Task Addition in Multi-Task Learning by Geometrical Alignment"
     authors: "Soorin Yim, Dae-Woong Jeong, Sung Moon Ko, Sumin Lee, Hyunseung Kim, Chanhui Lee, Sehui Han"
-    venue: "International Conference on Machine Learning (ICML) AI4Science Workshop 2024"
-    category: "Workshop Publications"
+    venue: "ICML Workshop on AI4Science 2024"
 
   - title: "Multitask Extension of Geometrically Aligned Transfer Encoder"
     authors: "Sung Moon Ko, Sumin Lee, Dae-Woong Jeong, Hyunseung Kim, Chanhui Lee, Soorin Yim, Sehui Han"
-    venue: "International Conference on Machine Learning (ICML) AI4Science Workshop 2024"
-    category: "Workshop Publications"
+    venue: "ICML Workshop on AI4Science 2024"
 
-conferences:
-  - title: "Procuring Design Factors for Efficient Si-base Quantum Logic Operations with Bayesian Optimization"
-    authors: "Chanhui Lee (oral presentation), Jihoon Kang, Taehyun Yoon, Sungbin Lim, and Hoon Ryu"
-    venue: "The 29th Korean Conference on Semiconductors"
-    note: "Oral Presentation"
+  - title: "Design of high-performance entangling logic in silicon quantum dot systems with Bayesian optimization"
+    authors: "Jihoon Kang, Taehyun Yoon, Chanhui Lee, Sungbin Lim, Hoon Ryu"
+    venue: "Scientific Reports 14, 10080 (2024)"
 
 work_experience:
   - period: "Apr. 2025 ~ Mar. 2026"
     position: "Industry-Academia Project"
     organization: "LG AI Research"
     location: "Seoul, Korea"
-    department: "Materials Intelligence Lab. — Chemical Reasoning Agent leveraging Chemical Tool"
+    department: "Materials Intelligence Lab. — Chemical Reasoning Agent: Multi-turn Molecular Optimization and Generation with Tool Augmentation"
 
   - period: "Dec. 2023 ~ Dec. 2024"
-    position: "Industry-Academia Project"
+    position: "Industry-Academia Project (Project Lead)"
     organization: "LG AI Research"
     location: "Seoul, Korea"
-    department: "Materials Intelligence Lab. — Multimodal foundation LLM for molecular chemistry"
+    department: "Materials Intelligence Lab. — Multimodal Foundation LLM for Molecular Chemistry"
 
   - period: "Sep. 2023 ~ Sep. 2024"
-    position: "Research Intern"
+    position: "Research Intern (Full-time)"
     organization: "LG AI Research"
     location: "Seoul, Korea"
-    department: "Materials Intelligence Lab. — Chemical LLM agent data generation, training, and evaluation via MLOps"
+    department: "Materials Intelligence Lab. — Chemical LLM Agent: Data Generation, Training, and Evaluation using MLOps with In-house Deployment"
 
   - period: "Apr. 2023 ~ Apr. 2024"
-    position: "Industry-Academia Project"
+    position: "Industry-Academia Project (Project Lead)"
     organization: "LG AI Research"
     location: "Seoul, Korea"
-    department: "Data Intelligence Lab. — LLM causal reasoning for causal discovery"
+    department: "Data Intelligence Lab. — LLM Causal Reasoning for Causal Discovery"
 
   - period: "Jun. 2022 ~ Nov. 2022"
-    position: "Research Intern"
+    position: "Research Intern (Full-time)"
     organization: "LG AI Research"
     location: "Seoul, Korea"
-    department: "Materials Informatics Lab. — Probabilistic inference on chemistry data regarding wet lab experimental data on Polymer chemistry"
+    department: "Materials Informatics Lab. — Bayesian Inference Applied to Wet Lab Chemistry Data in a Data-Scarce Regime"
 
 research_experience:
   - period: "Dec. 2016 ~ Jun. 2018"
     position: "Research Intern"
-    organization: "Department of Physics, UNIST"
+    organization: "UNIST"
+    department: "Department of Physics"
     advisor: "Cheolmin Ghim"
     location: "Ulsan, Korea"
-    subject: "Markov Chain Monte Carlo simulation of complex networks"
+    subject: "Markov Chain Monte Carlo Simulation of Complex Networks"
 
   - period: "Dec. 2015 ~ Jun. 2016"
     position: "Research Intern"
-    organization: "Department of Energy and Chemical Engineering, UNIST"
+    organization: "UNIST"
+    department: "Department of Energy and Chemical Engineering"
     advisor: "Sangkyu Kwak"
     location: "Ulsan, Korea"
-    subject: "In silico study of Desalination using Carbon Nano Tube"
+    subject: "Molecular Dynamics Simulation of Desalination using Carbon Nanotube"
 
 academic_services:
   - role: "Conference Reviewer"
