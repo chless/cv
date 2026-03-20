@@ -80,7 +80,7 @@ def _styles():
     )
     s["section"] = ParagraphStyle(
         "section", fontName=FONT_SERIF_BOLD, fontSize=14, leading=18,
-        spaceBefore=0, spaceAfter=6, textColor=black,
+        spaceBefore=0, spaceAfter=0, textColor=black,
     )
     s["subsection"] = ParagraphStyle(
         "subsection", fontName=FONT_SERIF_BOLD, fontSize=11, leading=15,
@@ -178,6 +178,9 @@ class NumberedCanvas(pdfcanvas.Canvas):
 
 class SectionTitle(Flowable):
     """A section title with a thick black bar to its left."""
+    SPACE_BEFORE = 14
+    SPACE_AFTER = 6
+
     def __init__(self, text, style, bar_w=BAR_WIDTH, bar_h=BAR_HEIGHT, gap=8):
         super().__init__()
         self.text = text
@@ -186,11 +189,13 @@ class SectionTitle(Flowable):
         self.bar_h = bar_h
         self.gap = gap
         self._para = Paragraph(text, style)
+        self.spaceAfter = self.SPACE_AFTER
+        self.spaceBefore = self.SPACE_BEFORE
 
     def wrap(self, availWidth, availHeight):
         pw, ph = self._para.wrap(availWidth - self.bar_w - self.gap, availHeight)
         self.width = availWidth
-        self.height = max(ph, self.bar_h) + 6
+        self.height = max(ph, self.bar_h)
         self._para_h = ph
         self._para_w = pw
         return self.width, self.height
@@ -386,39 +391,29 @@ def render_pdf(cv: dict, output: str = "cv_output.pdf"):
 
         owner_name = cv.get("name", "")
 
-        # Group by category if present
-        categories = {}
         for p in cv["publications"]:
-            cat = p.get("category", "Publications")
-            categories.setdefault(cat, []).append(p)
-
-        for cat_name, pubs in categories.items():
-            if len(categories) > 1:
-                story.append(Paragraph(f"<b>{cat_name}</b>", s["subsection"]))
-
-            for p in pubs:
-                parts = []
+            parts = []
+            parts.append(Paragraph(
+                f'<b>{p["title"]}</b>.',
+                s["pub_title"],
+            ))
+            authors = _underline_name(p["authors"], owner_name)
+            parts.append(Paragraph(authors + ".", s["pub_body"]))
+            if p.get("venue"):
                 parts.append(Paragraph(
-                    f'<b>{p["title"]}</b>.',
-                    s["pub_title"],
+                    f'<i>{p["venue"]}</i>.',
+                    s["pub_venue"],
                 ))
-                authors = _underline_name(p["authors"], owner_name)
-                parts.append(Paragraph(authors + ".", s["pub_body"]))
-                if p.get("venue"):
-                    parts.append(Paragraph(
-                        f'<i>{p["venue"]}</i>.',
-                        s["pub_venue"],
-                    ))
-                if p.get("note"):
-                    parts.append(Paragraph(
-                        f'<b>{p["note"]}</b>',
-                        s["pub_note"],
-                    ))
-                if p.get("link_label"):
-                    parts.append(Paragraph(p["link_label"], s["pub_body"]))
+            if p.get("note"):
+                parts.append(Paragraph(
+                    f'<b>{p["note"]}</b>',
+                    s["pub_note"],
+                ))
+            if p.get("link_label"):
+                parts.append(Paragraph(p["link_label"], s["pub_body"]))
 
-                story.append(BulletCircle(parts))
-                story.append(Spacer(1, 6))
+            story.append(BulletCircle(parts))
+            story.append(Spacer(1, 6))
 
     # === CONFERENCES (as separate section if present) ===
     if cv.get("conferences"):
