@@ -1,19 +1,20 @@
 name: Chanhui Lee
 email: chlessling@gmail.com
-phone: 010-7728-5119
+phone: "010-7728-5119"
 
 research_interests:
-  - Causal learning
-  - Deep learning
+  - Causal Learning
+  - Deep Learning
   - Causality
   - Large-scale Language Models
   - Natural Language Processing
 
 education:
   - period: "Mar. 2021 ~ Present"
-    degree: "M.S. in Artificial Intelligence"
-    institution: "Ulsan National Institute of Science and Technology (UNIST)"
+    degree: "M.S."
+    institution: "UNIST"
     location: "Ulsan, Korea"
+    major: "Artificial Intelligence"
     advisor: "Sungbin Lim"
 
   - period: "May. 2019 ~ Jan. 2021"
@@ -22,43 +23,47 @@ education:
     location: "Korea"
 
   - period: "Mar. 2014 ~ Feb. 2019"
-    degree: "B.S. in Chemical Engineering"
-    institution: "Ulsan National Institute of Science and Technology (UNIST)"
+    degree: "B.S."
+    institution: "UNIST"
     location: "Ulsan, Korea"
+    major: "Chemical Engineering"
 
 publications:
   - title: "Neural Bootstrapping Attention for Neural Processes"
     authors: "Minsub Lee*, Junhyun Park*, Chanhui Lee, Hyungjoo Cho, Minsuk Shin, Sungbin Lim"
     venue: "Submitted to NeurIPS 2022"
+    category: "International Publications"
 
   - title: "Bayesian optimization of the design factors in Si-base quantum dot device for efficient logic gate operation"
     authors: "Jihoon Kang*, Chanhui Lee*, Taehyun Yoon, Sungbin Lim, Hoon Ryu"
     venue: "In preparation"
     note: "(* denotes equal contribution)"
+    category: "International Publications"
 
 conferences:
   - title: "Procuring Design Factors for Efficient Si-base Quantum Logic Operations with Bayesian Optimization"
-    venue: "The 29th Korean Conference on Semiconductors"
     authors: "Chanhui Lee (oral presentation), Jihoon Kang, Taehyun Yoon, Sungbin Lim, and Hoon Ryu"
-    affiliations: "1: UNIST, 2: KISTI"
+    venue: "The 29th Korean Conference on Semiconductors"
+    note: "Oral Presentation"
 
 work_experience:
   - period: "Jun. 2022 ~ Nov. 2022"
     position: "Research Intern"
-    organization: "Materials Informatics Lab, LG AI Research"
+    organization: "LG AI Research"
     location: "Seoul, Korea"
+    department: "Materials Informatics Lab"
 
 research_experience:
   - period: "Dec. 2016 ~ Jun. 2018"
     position: "Research Intern"
-    advisor: "Cheolmin Ghim"
     organization: "Department of Physics, UNIST"
+    advisor: "Cheolmin Ghim"
     location: "Ulsan, Korea"
     subject: "Markov Chain Monte Carlo simulation of complex networks"
 
   - period: "Dec. 2015 ~ Jun. 2016"
     position: "Research Intern"
-    advisor: "Sangkyu Kwak"
     organization: "Department of Energy and Chemical Engineering, UNIST"
+    advisor: "Sangkyu Kwak"
     location: "Ulsan, Korea"
     subject: "In silico study of Desalination using Carbon Nano Tube"
