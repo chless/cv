@@ -29,6 +29,33 @@ education:
     major: "Chemical Engineering"
 
 publications:
+  # --- Submitted / Under Review ---
+  - title: "Mol-LLM: Multimodal Generalist Molecular LLM with Improved Graph Utilization"
+    authors: "Chanhui Lee, Hanbum Ko, Yuheon Song, YongJun Jeong, Rodrigo Hormazabal, Sehui Han, Kyunghoon Bae, Sungbin Lim, Sungwoong Kim"
+    venue: "Submitted to Nature Machine Intelligence"
+    category: "International Publications"
+
+  - title: "RetroReasoner: A Reasoning LLM for Strategic Retrosynthesis Prediction"
+    authors: "Hanbum Ko, Chanhui Lee, Ye Rin Kim, Rodrigo Hormazabal, Sehui Han, Sungbin Lim, Sungwoong Kim"
+    venue: "Submitted to ICML 2026"
+    category: "International Publications"
+
+  - title: "Machine Learning Hamiltonians are Accurate Energy-Force Predictors"
+    authors: "Seongsu Kim, Chanhui Lee, Yoonho Kim, Seongjun Yun, Honghui Kim, Nayoung Kim, Changyoung Park, Sehui Han, Sungbin Lim, Sungsoo Ahn"
+    venue: "Submitted to ICML 2026"
+    category: "International Publications"
+
+  - title: "Towards a Generalizable AI for Materials Discovery: Validation through Immersion Coolant Screening"
+    authors: "Hyunseung Kim, Dae-Woong Jeong, Changyoung Park, Won-Ji Lee, Ha-Eun Lee, Ji-Hye Lee, Rodrigo Hormazabal, Sung Moon Ko, Sumin Lee, Soorin Yim, Chanhui Lee, Sehui Han, Sang-Ho Cha, Woohyung Lim"
+    venue: "Submitted to Science Advances"
+    category: "International Publications"
+
+  # --- Accepted ---
+  - title: "Score-informed Neural Operator for Enhancing Ordering-based Causal Discovery"
+    authors: "Jiyeon Kang, Songseong Kim, Chanhui Lee, Doyeong Hwang, Joanie Hayoun Chung, Yunkyung Ko, Sumin Lee, Sungwoong Kim, Sungbin Lim"
+    venue: "Neural Information Processing Systems (NeurIPS) 2025"
+    category: "International Publications"
+
   - title: "Neural Bootstrapping Attention for Neural Processes"
     authors: "Minsub Lee*, Junhyun Park*, Chanhui Lee, Hyungjoo Cho, Minsuk Shin, Sungbin Lim"
     venue: "Submitted to NeurIPS 2022"
@@ -40,6 +67,37 @@ publications:
     note: "(* denotes equal contribution)"
     category: "International Publications"
 
+  # --- Workshop Publications ---
+  - title: "ReactionReasoner: Towards Reasoning LLM for Chemical Reaction Prediction"
+    authors: "Hanbum Ko, Chanhui Lee, Ye Rin Kim, Rodrigo Hormazabal, Sehui Han, Sungbin Lim, Sungwoong Kim"
+    venue: "NeurIPS AI for Science Workshop 2025"
+    category: "Workshop Publications"
+
+  - title: "Mol-LLM: Multimodal Generalist Molecular LLM with Improved Graph Utilization"
+    authors: "Chanhui Lee, Hanbum Ko, Yuheon Song, YongJun Jeong, Rodrigo Hormazabal, Sehui Han, Kyunghoon Bae, Sungbin Lim*, Sungwoong Kim*"
+    venue: "NeurIPS AI for Science Workshop 2025"
+    category: "Workshop Publications"
+
+  - title: "On Incorporating Prior Knowledge Extracted from Pre-trained Language Models into Causal Discovery"
+    authors: "Chanhui Lee, Juhyeon Kim, YongJun Jeong, Yoonseok Yeom, Juhyun Lyu, Jung-Hee Kim, Sangmin Lee, Sangjun Han, Hyeokjun Choe, Soyeon Park, Woohyung Lim, Kyunghoon Bae, Sungbin Lim, Sanghack Lee"
+    venue: "Neural Information Processing Systems (NeurIPS) Workshop on Causality and Large Models 2024"
+    category: "Workshop Publications"
+
+  - title: "Scalable Multi-Task Transfer Learning for Molecular Property Prediction"
+    authors: "Chanhui Lee, Dae-Woong Jeong, Sung Moon Ko, Sumin Lee, Hyunseung Kim, Soorin Yim, Sehui Han, Sungwoong Kim, Sungbin Lim"
+    venue: "International Conference on Machine Learning (ICML) AI4Science Workshop 2024"
+    category: "Workshop Publications"
+
+  - title: "Task Addition in Multi-Task Learning by Geometrical Alignment"
+    authors: "Soorin Yim, Dae-Woong Jeong, Sung Moon Ko, Sumin Lee, Hyunseung Kim, Chanhui Lee, Sehui Han"
+    venue: "International Conference on Machine Learning (ICML) AI4Science Workshop 2024"
+    category: "Workshop Publications"
+
+  - title: "Multitask Extension of Geometrically Aligned Transfer Encoder"
+    authors: "Sung Moon Ko, Sumin Lee, Dae-Woong Jeong, Hyunseung Kim, Chanhui Lee, Soorin Yim, Sehui Han"
+    venue: "International Conference on Machine Learning (ICML) AI4Science Workshop 2024"
+    category: "Workshop Publications"
+
 conferences:
   - title: "Procuring Design Factors for Efficient Si-base Quantum Logic Operations with Bayesian Optimization"
     authors: "Chanhui Lee (oral presentation), Jihoon Kang, Taehyun Yoon, Sungbin Lim, and Hoon Ryu"
@@ -47,11 +105,35 @@ conferences:
     note: "Oral Presentation"
 
 work_experience:
+  - period: "Apr. 2025 ~ Mar. 2026"
+    position: "Industry-Academia Project"
+    organization: "LG AI Research"
+    location: "Seoul, Korea"
+    department: "Materials Intelligence Lab. — Chemical Reasoning Agent leveraging Chemical Tool"
+
+  - period: "Dec. 2023 ~ Dec. 2024"
+    position: "Industry-Academia Project"
+    organization: "LG AI Research"
+    location: "Seoul, Korea"
+    department: "Materials Intelligence Lab. — Multimodal foundation LLM for molecular chemistry"
+
+  - period: "Sep. 2023 ~ Sep. 2024"
+    position: "Research Intern"
+    organization: "LG AI Research"
+    location: "Seoul, Korea"
+    department: "Materials Intelligence Lab. — Chemical LLM agent data generation, training, and evaluation via MLOps"
+
+  - period: "Apr. 2023 ~ Apr. 2024"
+    position: "Industry-Academia Project"
+    organization: "LG AI Research"
+    location: "Seoul, Korea"
+    department: "Data Intelligence Lab. — LLM causal reasoning for causal discovery"
+
   - period: "Jun. 2022 ~ Nov. 2022"
     position: "Research Intern"
     organization: "LG AI Research"
     location: "Seoul, Korea"
-    department: "Materials Informatics Lab"
+    department: "Materials Informatics Lab. — Probabilistic inference on chemistry data regarding wet lab experimental data on Polymer chemistry"
 
 research_experience:
   - period: "Dec. 2016 ~ Jun. 2018"
@@ -67,3 +149,7 @@ research_experience:
     advisor: "Sangkyu Kwak"
     location: "Ulsan, Korea"
     subject: "In silico study of Desalination using Carbon Nano Tube"
+
+academic_services:
+  - role: "Conference Reviewer"
+    detail: "NeurIPS (2023, 2024, 2025 Top Reviewer); ICML (2023, 2024, 2025); ICLR (2023, 2024, 2025); ACL (2025); AAAI (2024); TMLR (2025)."

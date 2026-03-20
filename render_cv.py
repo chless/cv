@@ -468,7 +468,7 @@ def render_pdf(cv: dict, output: str = "cv_output.pdf"):
 
     # === WORK EXPERIENCE ===
     if cv.get("work_experience"):
-        story.append(SectionTitle("Experience", s["section"]))
+        story.append(SectionTitle("Industrial Experience", s["section"]))
         rows = []
         for w in cv["work_experience"]:
             parts = []
