@@ -44,23 +44,19 @@ publications_note: "(* denotes equal contribution or co-corresponding)"
 publications:
   - title: "Mol-LLM: Multimodal Generalist Molecular LLM with Improved Graph Utilization"
     authors: "Chanhui Lee, Hanbum Ko, Yuheon Song, Yongjun Jeong, Rodrigo Hormazabal, Sehui Han, Kyunghoon Bae, Sungbin Lim*, Sungwoong Kim*"
-    venue: "Under review at Nature Machine Intelligence"
+    venue: "Under review at Nature Communications"
 
   - title: "RetroReasoner: A Reasoning LLM for Strategic Retrosynthesis Prediction"
     authors: "Hanbum Ko, Chanhui Lee, Ye Rin Kim, Rodrigo Hormazabal, Sehui Han, Sungbin Lim, Sungwoong Kim"
-    venue: "Under review at ICML 2026"
+    venue: "Under review at EMNLP 2026"
+
+  - title: "MolDesignBench: Evaluating LLM-based Agent for Scenario-grounded Molecular Design"
+    authors: "Yongjun Jeong, Hanbum Ko, Ye Rin Kim, Chanhui Lee, Rodrigo Hormazabal, Jaewan Lee, Sehui Han, Sungbin Lim, Sungwoong Kim"
+    venue: "Under review at COLM 2026"
 
   - title: "Machine Learning Hamiltonians are Accurate Energy-Force Predictors"
     authors: "Seongsu Kim, Chanhui Lee, Yoonho Kim, Seongjun Yun, Honghui Kim, Nayoung Kim, Changyoung Park, Sehui Han, Sungbin Lim*, Sungsoo Ahn*"
-    venue: "Under review at ICML 2026"
-
-  - title: "Towards a Generalizable AI for Materials Discovery: Validation through Immersion Coolant Screening"
-    authors: "Hyunseung Kim, Dae-Woong Jeong, Changyoung Park, Won-Ji Lee, Ha-Eun Lee, Ji-Hye Lee, Rodrigo Hormazabal, Sung Moon Ko, Sumin Lee, Soorin Yim, Chanhui Lee, Sehui Han, Sang-Ho Cha, Woohyung Lim"
-    venue: "Under review at Science Advances"
-
-  - title: "Learning Causal Structures in Non-Stationary Time Series with Regime-Adaptive Discovery"
-    authors: "Juhyeon Kim, Yoonseok Yeom, Chanhui Lee, Juyong Sung, Yongjun Jeong, Jeongsup Park, Juhyun Lyu, Jung-Hee Kim, Sangmin Lee, Woohyung Lim, Sungbin Lim, Sanghack Lee"
-    venue: "Under review at UAI 2026"
+    venue: "ICML 2026"
 
   - title: "Score-informed Neural Operator for Enhancing Ordering-based Causal Discovery"
     authors: "Jiyeon Kang*, Songseong Kim*, Chanhui Lee, Doyeong Hwang, Joanie Hayoun Chung, Yunkyung Ko, Sumin Lee, Sungwoong Kim, Sungbin Lim"
